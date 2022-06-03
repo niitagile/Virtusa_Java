@@ -1,0 +1,142 @@
+function -- they always return single value
+
+
+delimiter $$
+create function function_name(parameter)
+return datatype
+Deterministic
+begin
+	statements
+end $$
+delimiter ;
+
+
+delimiter $$
+create function displaySalary(pempid integer)
+returns decimal(8,2)
+deterministic
+begin
+	declare psalary decimal(8,2);
+	select salary into psalary from employees where employee_id=pempid;
+
+return (psalary);
+
+End$$
+delimiter ;
+
+select displaySalary(101);
+
+******************************************
+delimiter $$
+create function doubleSalary(sal decimal(8,2))
+   returns decimal(8,2)
+    deterministic
+   begin
+	
+   return (sal+sal);
+  end$$
+delimiter ;
+
+select employee_id, salary, doubleSalary(salary) from employees;
+***************************************************
+		Cursor
+Cursor-- temporary memory
+
+A cursor allows us to iterate a set of rows returned by a query and process each row individually.
+
+to handle a result set inside a stored procedure is used with cursor
+
+
+cursor- read only, non-scrollable and asensitive (points to actual data in table)
+
+	how to create cursor
+1) declaration
+
+DECLARE cursor_name CURSOR FOR select_statements;
+
+2) open cursor
+
+OPEN cursor_name;
+
+3) fetch records from cursor
+
+FETCH cursor_name INTO variables_list;
+
+4) CLOSE cursor_name;
+
+
+how to handle exception in cursor
+you must declare NOT FOUND handler in cursor 
+
+DECLARE CONTINUE/EXIT HANDLER FOR NOT FOUND SET finished=1;
+
+finisished is a variable to indicate end of cursor
+ 
+Example-- display first_name, salary from employees;
+
+delimiter $$
+create procedure createList(inout employeelist varchar(4000))
+begin
+-- declare variables
+declare finished integer default 0;
+declare pfirstname varchar(30) default "";
+declare psalary decimal(10,2) default 0;
+
+-- declare cursor
+declare displaySalary cursor for
+	select first_name, salary from employees;
+
+-- declare not found handler
+declare continue handler for not found set finished =1;
+
+open displaySalary;
+
+getLoop : Loop
+	fetch displaySalary into pfirstname, psalary;
+	if finished =1 then
+		leave getLoop;
+	end if;	
+	set employeelist = concat(concat (pfirstname," ",psalary),";",employeelist);
+	 
+end loop getLoop; 
+
+
+close displaySalary;
+
+end$$
+delimiter ;
+
+
+--to call procedure
+set @employeelist ="";
+call createlist(@employeelist);
+select @employeelist;
+
+******************************************************
+DELIMITER $$ 
+ 
+ CREATE PROCEDURE sp_set_commission1 ()
+ BEGIN
+ DECLARE done INT DEFAULT 0;
+ DECLARE emp_id INT;
+declare psalary decimal(10,2);
+ DECLARE cur1 CURSOR FOR SELECT employee_id,salary from employees WHERE commission_pct IS NULL; 
+ DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+
+OPEN cur1;
+
+read_loop: LOOP
+ IF done=1 THEN
+ LEAVE read_loop;
+ END IF;
+ FETCH cur1 INTO emp_id,psalary;
+ UPDATE employees SET commission_pct =psalary*.1 where employee_id=emp_id;
+ END LOOP;
+
+close cur1;
+END$$
+
+DELIMITER ;
+
+
+
