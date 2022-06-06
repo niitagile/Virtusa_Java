@@ -1,0 +1,11 @@
+Write program on bases of HR schema
+
+
+
+1 Write a program to interchange the salaries of employee 120 and 122.
+2 Increase the salary of employee 115 based on the following conditions: If experience is more than 10 years, increase salary by 20% If experience is greater than 5 years, increase salary by 10% Otherwise 5% Case by Expression:
+3 Change commission percentage as follows for employee with ID = 150. If salary is more than 10000 then commission is 0.4%, if Salary is less than 10000 but experience is more than 10 years then 0.35%, if salary is less than 3000 then commission is 0.25%. In the remaining cases commission is 0.15%.
+4 Find out the name of the employee and name of the department for the employee who is managing for employee 103.
+5 Display missing employee IDs.
+6 Display the year in which maximum number of employees joined along with how many joined in each month in that year.
+7 Update salary of an employee based on department and commission percentage. If department is 40 increase salary by 10%. If department is 70 then 15%, if commission is more than .3% then 5% otherwise 10%.
