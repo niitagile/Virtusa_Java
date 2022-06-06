@@ -1,0 +1,8 @@
+Create a function that takes a manager ID and return the names of employees who report to this manager. The names must be returned as a string with comma separating names.
+
+
+Create a procedure that takes department ID and changes the manager ID for the department to the employee in the department with highest salary. (Use Exceptions).
+
+Create a function that takes employee ID and return the number of jobs done by the employee in the past.
+
+Create cursor to Update salary of an employee based on department and commission percentage. If department is 40 increase salary by 10%. If department is 70 then 15%, if commission is more than .3% then 5% otherwise 10%.
