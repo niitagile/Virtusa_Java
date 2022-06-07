@@ -1,0 +1,241 @@
+		DDL Command
+
+
+	Data types
+Numeric Types	Description
+ TINYINT	A very small integer
+ SMALLINT	A small integer
+ MEDIUMINT	A medium-sized integer
+ INT		A standard integer
+ BIGINT		A large integer
+ DECIMAL	A fixed-point number
+ FLOAT		A single-precision floating point number
+ DOUBLE		A double-precision floating point number
+ BIT		A bit field
+
+
+String Types	Description
+ CHAR		A fixed-length nonbinary (character) string
+ VARCHAR	A variable-length non-binary string
+ BINARY		A fixed-length binary string
+ VARBINARY	A variable-length binary string
+ TINYBLOB	A very small BLOB (binary large object)
+ BLOB		A small BLOB
+ MEDIUMBLOB	A medium-sized BLOB
+ LONGBLOB	A large BLOB
+ TINYTEXT	A very small non-binary string
+ TEXT		A small non-binary string
+ MEDIUMTEXT	A medium-sized non-binary string
+ LONGTEXT	A large non-binary string
+ ENUM		An enumeration; each column value may be assigned one enumeration member
+ SET		A set; each column value may be assigned zero or more SET members
+
+Date and Time Types	Description
+ DATE			A date value in CCYY-MM-DD format
+ TIME			A time value in hh:mm:ss format
+ DATETIME		A date and time value inCCYY-MM-DD hh:mm:ssformat
+ TIMESTAMP		A timestamp value in CCYY-MM-DD hh:mm:ss format
+ YEAR			A year value in CCYY or YY format
+
+******************************************************************
+*****create table
+CREATE TABLE vehicles (
+    vehicleId INT,
+    year INT NOT NULL,
+    make VARCHAR(100) NOT NULL,
+    PRIMARY KEY(vehicleId)
+);
+
+*******Add Column
+ALTER TABLE vehicles
+ADD model VARCHAR(100) NOT NULL;
+
+
+ALTER TABLE vehicles
+ADD color VARCHAR(50),
+ADD note VARCHAR(255);
+
+*******Modify column
+ALTER TABLE vehicles 
+MODIFY note VARCHAR(100) NOT NULL;
+
+********Rename Column
+ALTER TABLE vehicles 
+CHANGE COLUMN note vehicleCondition VARCHAR(100) NOT NULL;
+
+
+************Drop column
+ALTER TABLE vehicles
+DROP COLUMN vehicleCondition;
+
+
+Sequence-- automaticaaly store value
+
+CREATE TABLE employees (
+    emp_no INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50)
+);
+
+insert into employees(first_name,last-name) values('Neela', 'Mehto');
+
+********************************************************************************
+	Contraints--Restrictions
+at 2 levels-- column level, table level
+
+Not null
+
+primary key
+CREATE TABLE users(
+   user_id INT AUTO_INCREMENT PRIMARY KEY,
+   username VARCHAR(40),
+   password VARCHAR(255),
+   email VARCHAR(255)
+);
+
+CREATE TABLE roles(
+   role_id INT AUTO_INCREMENT,
+   role_name VARCHAR(50),
+   PRIMARY KEY(role_id)
+);
+
+
+
+CREATE TABLE user_roles(
+   user_id INT,
+   role_id INT,
+   PRIMARY KEY(user_id,role_id)
+);
+
+************Add primary key through alter command
+
+CREATE TABLE pkdemos(
+   id INT,
+   title VARCHAR(255) NOT NULL
+);
+
+
+ALTER TABLE pkdemos
+ADD PRIMARY KEY(id);
+
+*********************Foreign Key
+CREATE TABLE categories(
+    categoryId INT AUTO_INCREMENT PRIMARY KEY,
+    categoryName VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE products(
+    productId INT AUTO_INCREMENT PRIMARY KEY,
+    productName varchar(100) not null,
+    categoryId INT,
+    CONSTRAINT fk_category
+    FOREIGN KEY (categoryId) 
+        REFERENCES categories(categoryId)
+	ON UPDATE SET NULL
+        ON DELETE SET NULL 
+)
+
+********drop constraint
+ALTER TABLE products 
+DROP FOREIGN KEY fk_category;
+
+***********disable foreign key
+
+SET foreign_key_checks = 0;
+
+
+**********************************************************************************
+
+		Unique Constraint
+
+CREATE TABLE suppliers (
+    supplier_id INT AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    phone VARCHAR(15) NOT NULL UNIQUE,
+    address VARCHAR(255) NOT NULL,
+    PRIMARY KEY (supplier_id),
+    CONSTRAINT uc_name_address UNIQUE (name , address)
+);
+
+ show index from suppliers;
+
+
+ALTER TABLE users
+ADD UNIQUE INDEX username_unique (username ASC) ;
+**********************************************************************
+	Check Constraint
+
+CREATE TABLE parts (
+    part_no VARCHAR(18) PRIMARY KEY,
+    description VARCHAR(40),
+    cost DECIMAL(10,2 ) NOT NULL CHECK (cost >= 0),
+    price DECIMAL(10,2) NOT NULL CHECK (price >= 0)
+);
+
+
+
+CREATE TABLE parts (
+    part_no VARCHAR(18) PRIMARY KEY,
+    description VARCHAR(40),
+    cost DECIMAL(10,2 ) NOT NULL CHECK (cost >= 0),
+    price DECIMAL(10,2) NOT NULL CHECK (price >= 0),
+    CONSTRAINT parts_chk_price_gt_cost 
+        CHECK(price >= cost)
+);
+
+
+
+*************************** Default values
+
+CREATE TABLE cart_items 
+(
+    item_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    quantity INT NOT NULL,
+    price DEC(5,2) NOT NULL,
+    sales_tax DEC(5,2) NOT NULL DEFAULT 0.1,
+    CHECK(quantity > 0),
+    CHECK(sales_tax >= 0) 
+);
+
+
+
+ALTER TABLE table_name
+ALTER COLUMN column_name SET DEFAULT default_value;
+
+
+ALTER TABLE cart_items
+ALTER COLUMN quantity SET DEFAULT 1;
+
+ALTER TABLE cart_items
+ALTER COLUMN quantity DROP DEFAULT;
+
+
+
+
+
+
+
+
+CREATE TABLE IF NOT EXISTS tasks (
+    task_id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    start_date DATE,
+    due_date DATE,
+    status TINYINT NOT NULL,
+    priority TINYINT NOT NULL,
+    description TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) 
+
+
+CREATE TABLE IF NOT EXISTS checklists (
+    todo_id INT AUTO_INCREMENT,
+    task_id INT,
+    todo VARCHAR(255) NOT NULL,
+    is_completed BOOLEAN NOT NULL DEFAULT FALSE,
+    PRIMARY KEY (todo_id , task_id),
+    FOREIGN KEY (task_id)
+        REFERENCES tasks (task_id)
+        ON UPDATE RESTRICT ON DELETE CASCADE
+);
