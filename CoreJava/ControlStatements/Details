@@ -1,0 +1,31 @@
+switch(value)//int, short,string,char,enum
+{
+case val: statements;
+			breaks;
+case val: statements
+			breaks;
+default: statements;			
+}			
+					
+					
+Loops
+for
+while
+do...while
+for enhanced loop-- Arrays
+continue
+break
+
+main(){
+
+	int n=3;
+	int i;
+	if(i==n){
+	System.out.println("hello");
+	break;
+	}
+	else
+	System.out.println("welcome");
+		
+
+}						

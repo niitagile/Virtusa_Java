@@ -1,0 +1,228 @@
+ 5 + 7 = 12
+ variable- a memory location to store value
+ datatype variablename;
+ rules for variable names
+ 1) A-Z, a-z, 0-9, $, _
+ 2) don't use keywords
+ 
+ 
+ 8 primitive Datatypes
+ -Integer
+ 
+ byte 0 to 255, -128 to 127 (1 byte)
+ 	byte num=9;
+ short			(2 byte)
+ 	short num=7889;
+ int (4 byte)
+ 	int num=678;
+ long (8 byte)
+ 	long num= 65236433754638L;
+ 
+ -decimal 
+ float (4 byte)
+ 		float num=6.7f;
+ 		
+ double (8 byte)
+ 	double num=8.9;
+ a single character
+ char (2 byte)
+ char result='p';
+ 
+ true/false
+ boolean (1 bit) 
+ boolean pass=true;
+ 
+ 
+ int num1=90;
+ 
+ float num2=num1;
+ 
+ 
+ float num3=89.5f;
+ 
+ int num4=(int)num3;
+ 
+ 
+ 
+ Operators
+ Arithmetic Operators  + - * / %
+ Relational operators  > < >= <= !=   returns answer -- boolean true/false
+ Logical operators && (and- both condtions must be true) || (any 1 condition should be true) 
+ increment/decrement operator
+ ++/--
+ 
+ a=a+1
+ a++, ++a
+ 
+ x=a++  --> x=a a=a+1
+ x=++a  --> a=a+1 x=a
+ 
+ ternary operator
+ ?:
+ condition? true : false
+ 
+ 
+ Control statements
+ if condition
+ switch
+ 
+ if(condition){
+ //statements
+ }
+ else{
+ //statments
+ }
+ 
+ //value-- char, enum, String, int,short
+switch(value){
+case value : statement;
+				break;
+case value : statement;
+				break;
+default : statement;								
+
+} 
+ Tomorrow's topics
+ 
+ Loops-- while , do..while,for, for enhance loop, array, Object Oriented features -- Class and Objects, polymorphism, inheritence
+ 
+ class - a blueprint of similar type of objects. class is a group of interrelated variables and methods
+ object- is an instance of class in which we are storing data
+ student
+ enrollmentno name  marks result
+ 101			Afsan 78 pass-- record/Object 
+ 102			Rekha  89 pass
+ 
+ teacher
+ empid name salary tax  
+ 
+ 
+ 
+ 
+ Class GrandParent{
+ 	void show(){
+ 	}
+ 
+ }
+ class Parent extends GrandParent{
+ 		Parent(){}
+ 	void show(){
+ 		super.show();
+ 	}
+ }
+ 
+ class child extends Parent{
+ 	child(){
+ 		super();
+ 		this("heena");
+ 	}
+ 	child(String a){
+ 		
+ 	}
+ 
+ 	void display(){
+ 		super.show();
+ 	}
+ 
+ }
+ 
+ Topics Covered Today
+ Loops
+ Methods
+ Class & Objects
+ Constructor Calling
+ this,super
+ inheritence
+ access modifier
+ 
+ 
+ Topics Cover Tomorrow
+ Encapsulation- getter/setter
+ Abstraction - interface, abstract class
+ polymorphism- method overloading, method overriding
+ static keyword, final keyword
+ Collections
+ 
+ 
+ Abstraction-interface, abstract class
+ 
+ abstract class- a class which contains abstract methods.
+ abstract methods- declare in parent class but working will be given by child class
+ you can't create instance object of abstract class.
+ 
+ 
+ interface- 
+ multiple  inheritence
+ contract for a class
+ static final variables
+ abstract methods, default methods, private methods(jdk 1.9 onwards), static methods
+ 
+ 
+ 
+ **************************************************
+ 
+ abstract class
+ wizard- to install a software
+ 1)configuration
+ 2)copy of file- library of eclipse
+ 3)jdk -decide by user - 
+ 
+ 
+ interface 
+ SDLC
+ requirement
+ 
+ analysis
+ 
+ design
+ 
+ code
+ 
+ testing
+ 
+ implement
+ 
+ maintainance
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
