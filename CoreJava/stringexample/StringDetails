@@ -1,0 +1,51 @@
+String is immutable class
+declare strings in 2 types
+1) String name="Varsha";//Pool
+2) string name=new String("Heena");//points to pool value
+
+str1 == str2 // it always compare address
+str1.equals(str2)// it compares values
+
+values can't be overriden
+
+name="Hemlata";// it stores in different location not in previous location
+
+Methods
+getChars()-- returns some characters 
+subString()-- returns a part of string
+charAt()-- returns a character from a position
+equals() -- true/false
+equalsIgnoreCase()-- true/false
+compareToIgnoreCase() -- int (0--> equal 1--if str1>str2  -1--> if str<str2
+compareTo()
+indexOf()-- checks the first position of occurrence of character
+lastIndexof()--checks the last position of occurrence of character
+split() -- break sentence in words
+concat()-- join multiple strings
+
+
+
+
+String s1="Anil";
+s1="Manish";
+
+Mutable classes
+
+StringBuffer -- synchronized
+StringBuffer s=new StringBuffer("hello");
+
+length=5
+capacity=5+16
+
+
+StringBuilder -non-synchronized
+StringBuilder s=new StringBuilder("hello");
+
+length=5
+capacity=5+16
+
+
+
+
+
+

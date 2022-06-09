@@ -1,0 +1,47 @@
+int arr[5];//error
+
+
+Java Prograaming
+
+int arr[]={12,45,78};
+System.out.println(arr.length);-- total no elements- 3
+
+int arr[]=new int[]{12,45,78};
+
+int arr[]=new int[5];-- it will create in heap memory of JVM. by default it is initalized with 0
+
+int []arr=new int[5];
+arr[4]=67;
+
+System.out.println(arr[6]);--> Exception-- ArrayIndexOutOfBoundsException
+
+
+2D Array
+int arr[row][col];
+int arr[][]={
+{12,3},
+{23,6},
+{45,8}
+
+};
+
+arr.length-->3
+
+int arr[][]={
+{12,3},
+{23},
+{45,8}
+
+};
+
+arr.length-- total rows (3)
+arr[0].length-- 1st row elements-- 2
+arr[1].length---2nd row elements-- 1
+arr[2].length-- 3rd row elements--2
+
+
+
+
+
+
+
