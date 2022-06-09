@@ -1,0 +1,6 @@
+/*As a user I should be able to add the task into an array
+2. As a user I should be able to update the task in the array
+3. As a user I should be able to delete the task in the array
+4. As a user I should be able to search a task from an array 
+5. As a user I should be able to see all task
+*/
