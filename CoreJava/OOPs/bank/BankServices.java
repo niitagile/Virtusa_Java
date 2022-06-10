@@ -32,4 +32,44 @@ public class BankServices {
 		}
 	}
 	
+	// methods
+	
+		void depositeMoney(int acc_no,float amount){
+			BankDetails obj=search(acc_no);
+			if(obj!=null){
+			obj.setBalance(obj.getBalance()+amount);
+			System.out.println("After Deposite balance is "+ obj.getBalance());
+			}
+			else
+				System.out.println("Account doesn't exist");
+			
+			}
+		
+		
+
+		void withdrawn(int acc_no,float amount){
+			BankDetails obj=search(acc_no);
+			if(obj!=null){
+			float balance=obj.getBalance();
+			if(balance>=amount){
+				obj.setBalance(balance-amount);
+				
+			}
+			else 
+				System.out.println("Insufficient balance");
+			System.out.println("Remaining Balance="+obj.getBalance());
+		}
+			else
+				System.out.println("Account doesn't exist");
+		}
+		
+		private BankDetails search(int acc_no) {
+			for(BankDetails obj : acc_holders){
+				if(obj.getAcc_no()==acc_no){
+					return obj;
+				}
+			}
+				
+			return null;
+		}
 }
