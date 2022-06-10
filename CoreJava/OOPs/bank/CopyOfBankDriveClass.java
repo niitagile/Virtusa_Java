@@ -34,6 +34,8 @@ public class CopyOfBankDriveClass {
 		
 		
 		service.display();
+		service.withdrawn(101, 2000);
+		service.depositeMoney(102, 3000);
 		
 
 	}
