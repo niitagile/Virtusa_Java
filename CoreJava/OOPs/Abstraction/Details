@@ -1,0 +1,75 @@
+Abstraction-- use a thing without knowing about its background
+abstract class
+- a class which is declared as abstract-- can't make an object of it
+- it constains abstract+ concrete methods
+-concrete methods- mathods with body
+- abstract method means - declare in parent class but implements by child class. 
+-it uses all modifiers
+
+interface
+
+jdk1.7
+- contract for a class to fullfill all requirements
+- we are using interface to create life cycle
+- public static final variables
+- public abstract menthods
+- all members are public by default
+- 
+interface interface1{
+	int maxage=100;
+	void display();
+	}
+internally
+	
+interface interface1{
+	public static final int maxage=100;
+	public abstract void display();
+}
+
+
+Diamond problem
+
+class ParentA{
+
+void show(){}
+}
+
+class ParentB{
+
+void show(){}
+}
+
+
+class Child extends ParentA, ParentB{
+	void display(){
+		super.show();
+	}
+
+}
+
+
+interface ParentA{
+
+void show();
+}
+
+interface ParentB{
+
+void show();
+}
+
+
+class Child implements ParentA, ParentB{
+	void show(){
+}
+
+}
+
+class Child extends Parent implements interface1{
+}
+jdk1 .8
+
+- in interface , default and static methods are allowed
+default method- method with working in interface. they can't be overriden
+
+jdk 1.9 -- private methods are also allowed
