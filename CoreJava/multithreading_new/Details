@@ -1,0 +1,20 @@
+To create thread
+interface Runnable{
+	void run();--> this method is use to give any working to thread
+	
+	
+}
+
+
+thread class
+class thread implements Runnable{
+	getter/setter
+	life cycle of thread
+	other methods
+
+
+}
+public static Thread currentThread()
+main-- first thread in your prg
+all threads are geeting -- 1 id
+
