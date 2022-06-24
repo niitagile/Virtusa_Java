@@ -1,0 +1,176 @@
+
+Threadpool is a fixed size pool which holds a sequential list of task to be performed.
+task should be executed in thread safe manner.
+**********java.util.concurrent package,
+-- which contains classes that are useful in concurrent programming
+
+Features include:
+-Concurrent collections
+-Synchronization and locking alternatives
+-Thread pools :Fixed and dynamic thread count pools available
+-Parallel divide and conquer
+****************************************************************
+Executor- ExecutorService-ScheduledExecutorService interface
+
+Executor-used to submit new task.
+ExceutorService- it is an abstraction over a thread class.
+It provides managed environment with thread pool to run asynchronous tasks.
+public interface Executor {
+	void execute(Runnable command);
+}
+
+-------Manual creation of Thread
+public class MyCommand implements Runnable {
+  public void run() {
+    // code to be executed
+  }
+}
+Thread t = new Thread(new MyCommand());
+t.start();
+
+
+-----converts to
+Executor executor = ... // Executor creation
+executor.execute(new MyCommand());
+
+
+
+class MyThread implements Runnable{
+
+}
+
+Thread t=new Thread(new MyThread())
+
+
+
+
+
+
+
+----- Types of Executor
+// Creates a single thread ScheduledExecutorService. You want to perform a task periodically. It uses delay queue. 
+delay queue is a special kind of queue where task will redistribute in an order in which they needs to be executed.
+ScheduledExecutorService singleScheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
+
+// Creates an ExecutorService that use a pool of 10 threads. all taks will be queued in blocking queue
+all thread ftech task from queue and works in thread-safe manner. If 1 thread task is competed then it fatches 
+another task from queue
+ExecutorService fixedExecutorService = Executors.newFixedThreadPool(10);
+
+// Creates an ExecutorService that use a pool that creates threads on demand
+// And that kill them after 60 seconds if they are not used
+//use synchronous queue of length 1
+ExecutorService onDemandExecutorService = Executors.newCachedThreadPool();
+
+// Creates a ScheduledExecutorService that use a pool of 5 threads
+ScheduledExecutorService fixedScheduledExecutorService = Executors.newScheduledThreadPool(5);
+
+
+
+***************************************************************************
+ExecutorService-provides methods to manage lifecycle of tasks as well for executor.
+For example It provides method for shutting down executors.
+
+/ Creates a single thread ExecutorService
+ExecutorService singleExecutorService = Executors.newSingleThreadExecutor();
+
+
+boolean awaitTermination(long timeout, TimeUnit unit)
+boolean isShutdown()
+boolean isTerminated()
+void shutdown()
+
+<T> Future<T> submit(Callable<T> task)
+Submits a value-returning task for execution and returns a Future representing the pending results of the task.
+
+
+****************************************************************************
+	
+
+
+<V> ScheduledFuture<V> schedule(Callable<V> callable, long delay, TimeUnit unit)
+Creates and executes a ScheduledFuture that becomes enabled after the given delay.
+
+ScheduledFuture<?> scheduleAtFixedRate(Runnable command, long initialDelay, long period, TimeUnit unit)
+Creates and executes a periodic action that becomes enabled first after the given initial delay
+, and subsequently with the given period;
+
+**********************************************************************************************
+
+java.util.concurrent.Callable
+
+The Callable interface:
+-Defines a task submitted to an ExecutorService
+-Is similar in nature to Runnable, but can:
+--	Return a result using generics
+--	Throw a checked exception
+
+package java.util.concurrent;
+public interface Callable<V> { 
+    <V> call() throws Exception;
+}
+*************************************************************************************
+							Lock System
+	java.util.concurrent.locks.Lock interface
+	
+-provides thread synchronization mechanism like synchronized blocks.
+ 						
+Methods of Lock interface
+-void lock() - acquire the lock if it is available
+-void unlock()
+-boolean tryLock() - this is a non-blocking version of lock() method. it attempts to acquire the lock immediately, return true if locking succeeds
+ - boolean tryLock(long timeout, TimeUnit time)
+ void lockInterruptiblity() - it allows the blocked thread to be interupted and resume the execution through thrown java.lang.InterruptedException
+
+ReadWriteLock interface:
+Lock readLock()- return lock that is used for reading
+can be put by multiple threads
+Lock writeLock() - retuens the lock that is used for writing
+
+ReentrantLock class implemnets Lock interface. It offers same concurrency and memory semantics as implicit lack accessed using synchronized block
+
+class PrinterQueue{
+	private final Lock queueLock=new ReentrantLock();
+	public void printJob(Object document){
+	queueLock.lock();
+	try{
+			System.out.println(Thread.currentThread().getName());
+			Thread.sleep(1000);
+		}
+		catch(InterruptedException e){
+			e.printStackTrace();
+		}	
+		finally{
+			queueLock.unlock();
+		}
+		
+		
+	}
+
+}
+****************************************
+class Test{
+
+	Map<String,String> syncHashMap=new HashMap<>();
+	ReadWriteLock lock=new ReentrantReadWriteLock();
+	Lock writeLock=lock.writeLock();
+	public void put(String key ,String value){
+	
+		try{
+			writeLock.lock();
+			syncHashMap.put(key,value);
+		
+		}
+		finally{
+				writeLock.unlock();
+		}
+	
+	
+	}
+
+
+
+
+
+
+
