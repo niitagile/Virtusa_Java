@@ -1,0 +1,20 @@
+Divide and conqure
+
+
+factorial
+
+5--> 5*4*3*2*1
+
+factorial(int num){
+if(num==1)
+return 1;
+else
+return num*factorial(num-1);
+}
+
+
+120
+5*24
+	4*6
+		3*2
+			2*1
