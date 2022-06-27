@@ -1,0 +1,43 @@
+Lambda expression can written for Function interfaces only
+Functional Interface - an interface which contains only 1 abstract method
+
+String name="geet";
+double pi=3.14;
+ablockofcode={statements;}
+
+ablockofstatement= ()->	System.out.println("area of rectangle is L*B");
+
+Shape s=new Shape(){
+				public void draw() {
+					// TODO Auto-generated method stub
+					System.out.println("area of rectangle is L*B");
+				}
+			};
+
+*************************************
+
+
+BiConsumer Interface-- 
+
+void accept(T,U)			
+
+
+@FunctionalInterface
+interface interface1{
+	String toUpperCase();
+}			
+
+class Test{
+	main(){
+	interface1 obj=()-> {return "hello".toUpperCase();};
+	System.out.println(obj.toUpperCase());
+
+}
+
+
+1 argument --> () are optional
+name-> System.out.println(name);
+
+(a,b)-> a+b;
+
+
