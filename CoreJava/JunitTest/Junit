@@ -1,0 +1,12 @@
+JUnit test framework provides the following important features −
+
+Fixtures
+	Fixtures is a fixed state of a set of objects used as a baseline for running tests.
+	setUp()- which runs before every test invocation.
+	tearDown() - which runs after every test method.
+Test suites
+	A test suite bundles a few unit test cases and runs them together.
+ 	In JUnit, both @RunWith and @Suite annotation are used to run the suite test.
+Test runners
+JUnit classes
+
