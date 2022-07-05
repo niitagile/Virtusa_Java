@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<script>  
+class Bike  
+{  
+  constructor(company)  
+  {  
+    this.company=company;  
+  }  
+}  
+class Vehicle extends Bike {  
+  constructor(name,price,company) {  
+   super(company);  
+    this.name=name;  
+    this.price=price;  
+    
+  }   
+}  
+var v = new Vehicle("Sunil","70000","Honda");  
+document.writeln(v.company+" "+v.name+" "+v.price);  
+</script>  
+</body>
+</html>
+
+<!--  prototype
+<script>  
+//Constructor function  
+function Bike(company)  //var Bike=function(company){statements}
+{  
+    this.company=company;   
+}  
+  
+Bike.prototype.getCompany=function()  
+{  
+  return this.company;  
+}  
+//Another constructor function  
+function Vehicle(name,price) {  
+ this.name=name;  
+  this.price=price;  
+  }   
+var bike = new Bike("Honda");  
+Vehicle.prototype=bike; //Now Bike treats as a parent of Vehicle.  
+var vehicle=new Vehicle("Shine",70000);  
+document.writeln(vehicle.getCompany()+" "+vehicle.name+" "+vehicle.price);  
+</script>  
+
+
+
+ -->
+
+
+

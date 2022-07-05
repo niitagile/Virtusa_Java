@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+Current Time: <span id="txt"></span> <!-- HTML <span> tag is used as a generic container of inline elements. -->  
+<script>  
+var today=new Date();  
+var h=today.getHours();  
+var m=today.getMinutes();  
+var s=today.getSeconds();  
+document.getElementById('txt').innerHTML=h+":"+m+":"+s;  
+</script>  
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script>
+function validate(){
+	
+	var name=document.form1.txtName.value;
+	
+	var age=document.getElementById("txtAge").value;
+	
+	document.write(name+" "+age);
+}
+
+
+
+</script>
+
+</head>
+<body>
+<form name="form1">
+enter your name
+<Input type="text" name="txtName">
+<input type="text" id="txtAge">
+
+<input type="button" value ="submit" onclick="validate()">
+
+
+</form>
+
+
+
+</body>
+</html>

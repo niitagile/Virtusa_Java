@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<h1>Demo: Attach property to object</h1>
+	
+	<script>    
+	function Student() {
+		this.name = 'John';
+		this.gender = 'M';
+	}
+Student.prototype.age=15;//provide properties across the objects
+	var studObj1 = new Student();
+	studObj1.age = 25;
+	alert(studObj1.name+" "+studObj1.age);
+
+	var studObj2 = new Student();
+	studObj2.name="Hans";
+	alert(studObj2.name+" "+studObj2.age); 
+	</script>	
+</body>
+</html>

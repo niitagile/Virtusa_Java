@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+//Constructor Function
+function Employee(firstname, lastname){
+	this.firstname=firstname;
+	this.lastname=lastname;
+}
+Employee.prototype.company="Reams";
+Employee.prototype.fullName=function(){
+	
+		return this.firstname+" "+this.lastname;
+};
+
+var e1=new Employee("Anisha", "Yadav");
+//alert(e1.company+ " "+e1.fullname());
+var e2=new Employee("Krish", "sharma");
+//alert(e2.company+ " "+e2.fullname());
+document.write(e1.fullName()+" "+e1.company+"<br>");
+document.write(e2.fullName()+" "+e2.company);
+//document.getElementById("demo").innerHTML=e1.company;
+</script>
+<!-- <p id="demo">Hello</p>-->
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script>
+class Employee{
+	//constructor
+	constructor(name){
+		this.name=name;
+	}
+	//declare method
+	details(){
+		
+		document.write(this.name);
+	}
+}
+
+function display(){
+var e1=new Employee("Anusha");
+e1.details();
+}
+</script>
+
+</head>
+<body>
+<input type="button" onclick="display()">
+</body>
+</html>

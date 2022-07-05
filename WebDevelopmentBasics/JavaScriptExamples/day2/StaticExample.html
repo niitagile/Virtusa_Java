@@ -1,0 +1,73 @@
+<!-- The static keyword is used to declare a static method.
+The static method can be of any name.
+A class can contain more than one static method.
+If we declare more than one static method with a similar name, the JavaScript always invokes the last one.
+The static method can be used to create utility functions.
+We can use this keyword to call a static method within another static method.
+We cannot use this keyword directly to call a static method within the non-static method.-->
+
+
+
+<!DOCTYPE html>
+
+<html>
+<body>
+
+<script>
+class Test
+{
+  static display()
+  {
+    return "static method is invoked"
+  }
+  
+  static display()
+  {
+    return "static method2 is invoked"
+  }
+}
+document.writeln(Test.display());
+</script>
+
+</body>
+</html>
+
+
+
+<!-- Example 2 (Two static methods)
+<script>  
+class Test  
+{  
+  static display1()  
+  {  
+    return "static method is invoked"  
+  }  
+  static display1()  
+  {  
+    return "static method is invoked again"  
+  }  
+}  
+document.writeln(Test.display1()+"<br>");  
+document.writeln(Test.display1());  
+</script>  
+-->
+
+<!-- static in constuctor
+<script>  
+class Test {  
+  constructor() {  
+  document.writeln(Test.display()+"<br>");   
+  document.writeln(this.constructor.display());   
+  }  
+  
+  static display() {  
+      return "static method is invoked"  
+  }  
+}  
+var t=new Test();  
+</script>  
+
+ -->
+
+
+

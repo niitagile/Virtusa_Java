@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function setCookie(cname,cvalue,exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  var expires = "expires=" + d.toGMTString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+  
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');  // username=nidhi;expires=1234556;path=/
+  //ca[0] : username=nidhi ca[1]: expires=123456 ca[2]:path=/
+  var uname=ca[0].split("=");// uname[0]:username uname[1]=nidhi
+  
+  return uname[1];
+}
+
+function checkCookie() {
+ /* var user=getCookie("username");
+  alert(user);
+  if (user != "") {
+    alert("Welcome again " + user);
+  } else {
+     user = prompt("Please enter your name:","");
+     if (user != "" && user != null) {
+       setCookie("username", user, 30);*/
+       
+     var  user = prompt("Please enter your name:","");
+       setCookie("username", user, 30);
+       user=getCookie("username");
+       alert("Welcome again " + user);
+       
+       
+    // }
+ // }
+}
+</script>
+</head>
+
+<body onload="checkCookie()"></body>
+
+</html>

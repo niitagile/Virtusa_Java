@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<script>  
+class Student  
+  {  
+    constructor()  
+    {  
+       var name;  
+       var marks;  
+    }  
+        getName()  
+        {  
+          return this.name;  
+        }  
+      setName(name)  
+      {  
+        this.name=name;  
+      }  
+  }        
+     
+    var stud=new Student();  
+     stud.setName("John");  
+     document.writeln(stud.getName());  
+</script>  
+</body>
+</html>
+
+
+<!-- encapsulation with prototype
+<script>  
+function Student(name)  
+{  
+  var s_name=name;  
+  
+  //Object.property(current_object, propertyname, {block for gettersetter});
+  
+  Object.defineProperty(this,"name",{  
+    get:function()  
+    {  
+      return s_name;  
+    },  
+  set:function(s_name)  
+  {  
+    this.s_name=s_name;  
+  }  
+    
+});   
+    
+}  
+  var stud=new Student("John");  
+  document.writeln(stud.name);  
+</script>   
+
+
+
+
+ -->
+

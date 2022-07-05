@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<script>  
+class A  
+  {  
+     display()  
+    {  
+      document.writeln("A is invoked<br>");  
+    }  
+  }  
+class B extends A  
+  {  
+    display()  
+    {  
+      document.writeln("B is invoked");  
+    }  
+  }  
+  
+var a=[new A(), new B()]  
+a.forEach(function(msg)  
+{  
+msg.display();  
+});  
+</script>  
+</body>
+</html>
+
+
+<!-- prototype
+var A = function(){};  //function A(){}
+	A.prototype.display = function(){
+		return "A is invoked";
+	}
+	//Second Class
+	var B = function(){}
+	B.prototype = Object.create(A.prototype);
+	B.prototype.display= function(){
+		return "B is invoked";
+	}
+	
+	//printing display message
+	var s = [new A(), new B()];
+	s.forEach (function (s){
+		document.write(s.display());
+	});
+ -->

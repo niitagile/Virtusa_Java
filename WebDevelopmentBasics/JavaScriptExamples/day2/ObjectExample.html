@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+const people = {  
+		  print: function ()  
+		   {  
+		    document.write(`My name is ${this.name}. Am I human? ${this.isHuman}`);  
+		  }  
+		};  
+		const me = Object.create(people);  
+		me.name = "Marry"; // "name" is a property set on "me", but not on "person"  
+		me.isHuman = true; // inherited properties can be overwritten  
+		me.print();  
+		
+		
+</script>
+</body>
+</html>
+<!-- 
+<script>  
+emp={id:102,name:"Shyam Kumar",salary:40000}  
+document.write(emp.id+" "+emp.name+" "+emp.salary);  
+</script>  
+
+
+//new Object()
+<script>  
+var emp=new Object();  
+emp.id=101;  
+emp.name="Ravi Malik";  
+emp.salary=50000;  
+document.write(emp.id+" "+emp.name+" "+emp.salary);  
+</script>  
+
+
+function fruits() {  
+        this.name = 'franco';  
+        }  
+       function fun() {  
+        fruits.call(this)  
+ }  
+  
+        fun.prototype = Object.create(fruits.prototype);  
+        const app = new fun();  
+        document.write(app.name); 
+        
+        
+ //defineProperties       
+const object1 = {};  
+Object.defineProperties(object1, {  
+  property1:{  
+value: 44 }  
+ });  
+document.write(object1.property1);          
+   
+   
+ //getOwnPropertyDescriptors
+ const object1 = {  
+  property1: 42  
+};  
+const object2 = {  
+  property2: 23  
+};  
+  
+const descriptors1 = Object.getOwnPropertyDescriptors(object1);  
+const descriptors2 = Object.getOwnPropertyDescriptors(object2);  
+document.write(descriptors1.property1.writable);  
+document.write(descriptors1.property1.value,descriptors2.property2.value);  
+-->        

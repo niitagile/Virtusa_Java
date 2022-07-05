@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<h1>Demo: Object Keys</h1>
+	<p id="p1">Keys: </p>
+	
+	<script>    
+	function Student(){
+	  this.title = "Mr.";
+	  this.name = "Steve";
+	  this.gender = "Male";
+	  this.sayHi = function(){    
+		alert('Hi');
+	  }
+	}
+	
+	var student1 = new Student();
+
+	document.getElementById("p1").innerHTML += Object.keys(student1);
+	
+	
+	</script>	
+</body>
+</html>
