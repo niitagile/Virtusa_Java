@@ -1,0 +1,27 @@
+Bootstrap is a framework-- css, javascript, jquery
+//Responsive web page
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+//Container
+to wrap site contents
+2 contaier classes
+.container-- fixed width container
+.container-fluid -- provides a full width container, 
+spanning the entire width of the viewport
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+
+grid classes
+xs- phone (768 px)
+sm- tablets- =>768 px
+md- small laptops - >=992 px
+lg- laptops and desktops- >=1200px
+
+<div class="container">
+<p></p>
+<div>
+</div>
+</div>

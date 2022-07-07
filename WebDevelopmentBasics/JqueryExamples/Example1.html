@@ -1,0 +1,49 @@
+<!-- $(selector).action() -- selector means html elements
+$(this).hide- current elemnt
+		$("p").hide- hide all <p>
+		$(".class1").hide()-- hide all elements which are using .class1 file
+		$("#id1").hide()
+		$("*").hide-- all elements
+		$("ul li:first") -- select first element fro list
+		$("[href]")-- select all elements which are using href
+		$("a[target='_blank']") - select all <a> which are using "target=_blank"
+		$(":button") select all <input type="button">
+		$("tr:odd") - select only odd rows
+		
+		$(document).ready(function(){//statements});
+		We always write query in ready() beacause it prevents any jquery to execute 
+		before the document is finished loading.
+		
+		short cut way:
+		$(function(){//statements});
+		<button></button>
+$("button").hide
+-->
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $("p").hide();
+  });
+});
+</script>
+</head>
+<body>
+
+
+<p>This is another paragraph.</p>
+
+<button>Click me</button>
+<p> this is second paragraph</p>
+</body>
+</html>

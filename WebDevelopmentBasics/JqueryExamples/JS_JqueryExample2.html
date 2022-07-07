@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("form").submit(function(){
+	  var text=$("#text1").val();
+		if(text==""||text==null)
+			{
+			alert("enter value");
+			}
+		else
+			{
+			 alert("you are entered "+text);
+			}
+  });
+});
+
+//$(document).ready(function(){});
+</script>
+</head>
+<body>
+
+<form>
+  First name: <input type="text" name="FirstName" id=text1><br>
+ 
+  <input type="submit" value="Submit">
+</form> 
+<script>
+
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!-- 
+.table class --adds basic styling to a table
+.table-striped class-- adds zebra-stripes to a table
+.table-bordered class --adds borders on all sides of the table and cells
+.table-hover class-- adds a hover effect (grey background color) on table rows
+.table-responsive class --creates a responsive table. 
+
+The contextual classes that can be used are:
+
+.active	--Applies the hover color to the table row or table cell
+.info	Indicates a neutral informative change or action
+.warning--	Indicates a warning that might need attention
+.danger	--Indicates a dangerous or potentially negative action
+
+
+
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <table class="table-bordered">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Anita</td>
+        <td>sharma</td>
+        <td>anita@somemail.com</td>
+      </tr>      
+      <tr class="success">
+        <td>Manisha</td>
+        <td>Doe</td>
+        <td>manisha@abc.com</td>
+      </tr>
+      <tr class="danger">
+        <td>nikita</td>
+        <td>goel</td>
+        <td>nikita@abc.com</td>
+      </tr>
+      <tr class="info">
+        <td>kavish</td>
+        <td>gupta</td>
+        <td>kavish@abc.com</td>
+      </tr>
+      <tr class="warning">
+        <td>geet</td>
+        <td>Refs</td>
+        <td>geet@abc.com</td>
+      </tr>
+      <tr class="active">
+        <td>Anuj</td>
+        <td>tyagi</td>
+        <td>anuj@abc.com</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
+
