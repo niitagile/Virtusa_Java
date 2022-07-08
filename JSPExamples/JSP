@@ -1,0 +1,241 @@
+JSP -Java Server Pages
+-- Extension of Servlet
+-- tag based language
+-- no need to recompile and redploy
+-- less code than servlet
+
+Life cycle of JSP
+-- Translation of JSP page
+--Compilation
+-- load class in memory
+-- Instantiation(generate Servlet Object)
+--initialization (container invokes jspInit())
+-- jspservice()
+--jspDestroy()
+
+
+3 scripting tags
+scriptlet
+<% java code %>
+expression
+<%=  %> never terminate statement with ;
+
+declaration
+<%!  varaibles
+methods %>
+
+
+*********9 implict objects
+out  -- JSPWriter
+request --- HttpServletRequest
+response -- HttpServletResponse
+config  -- ServletConfig
+application --  ServletContext
+session  --  HttpSession
+pageContext -- PageContext (request, session, application,page) 
+page   --  Object(works just like this)
+exception  -- Throwable
+
+**************************************************
+Directives - they are messages that tell web container how to translate jsp page to servlet
+3 types of directives
+- page
+-include
+-taglib
+
+<%@ directive attribute="value" %>
+
+			JSP page directive attributes
+			
+import
+<%@ page import="java.util.ArrayList" %>
+
+contenttype
+<%@page contentType="application/msword" %>
+
+extends
+<%@ page extends="" %> 
+
+info
+<%@page info="" %>
+
+public String getServletInfo(){
+
+	return "";
+}
+
+buffer - default size of buffer is 8kb
+<%@ page buffer="32kb"%>
+
+
+
+language
+isThreadSafe
+<%@page isThreadSafe="true" %> 
+means conatiner solves all request one by one
+autoFlush
+session
+pageEncoding
+errorPage
+isErrorPage
+
+
+		include directive
+header.html
+
+footer.html
+
+----frontpage.html
+<%@include file="header.html" %>
+<%=hello %>
+
+<%@include file="footer.html" %>
+
+				tag library
+<%@taglib uri="path of library" prefix="mytag" %>
+
+<table>-- html
+<mytag:table>
+
+
+
+						JSP Action tags
+they perform a particular task
+they are used to control the flow between pages and java bean
+
+jsp:forward - forwards request, response to another page
+
+jsp:include include output of another source in same
+
+jsp:useBean -- to create object of a class
+jsp:setProperty - to set values in object
+jsp:getProperty - to get values from object
+jsp:plugin - embed another components like applet
+jsp:param -- we are using it with forward and include
+
+difference between include directive and include action
+
+directive - includes resource at translation time
+action- includes resources at request time
+dir - static pages
+action- dynamic pages
+dir- includes the original content in the generated servlet
+action- calls include method
+
+				JavaBean
+Java class which should include- no-arg constructor, serializable, getter and setter
+
+						JSTL Library
+Java Core tags library
+EL - expression language
+${instructions}
+
+
+<c:import var="data" url="http://www.google.com"/>
+<c:out value="${data}"/>
+
+
+					function tags
+String functions
+
+fn:toLowerCase()
+fn:toUpperCase()
+fn:split()
+fn:startsWith()
+fn:length()
+
+formatting tags
+fmt:parseNumber
+fmt:parseDate
+fmt:formattNumber
+fmt:formatDate
+fmt:timeZone
+fmt:setTimeZone
+
+
+			Sql tags
+setDataSources
+<sql:setDataSource var="db" driver="com.mysql.jdbc.Driver"
+	url="path of database" user="" password=""/>
+<sql:setDataSource var="db" driver="com.mysql.jdbc.Driver"
+	url="jdbc:mysql://localhost/database1" user="hr" password="hr"/>	
+query
+	<sql:query dataSource="${db}" var="rs">
+	select * from Students;
+	</sql:query>
+	
+	<table>
+	<c:forEach var="stud" items="${rs.rows}">
+	<tr>
+		<td><c:out value="${stud.id}"</td>
+		<td><c:out value="${stud.name}" </td>
+	</tr>
+	</c:forEach>
+	</table>
+	
+	
+update
+	<sql:update dataSource="${db}" var="count">
+	statements foe insert/update/delete
+	</sql:update>
+
+
+param
+	<c:set var="sid" value="2">
+	<sql:update dataSource="${db}" var="count">
+		delete from students where id=?
+		<sql:param value="${sid}"/>
+	</sql:update>
+
+dateParam
+	Date dob=new Date("2010/10/12");
+	<c:set var="sid" value="2">
+	<sql:update dataSource="${db}" var="count">
+		update students set dob=? where id=?
+		<sql:dateParam value="<%=dob %>" type="date" />
+		<sql:param value="${sid}"/>
+		
+	</sql:update>
+
+transaction
+Date dob=new Date("2010/10/12");
+	<c:set var="sid" value="2">
+	<sql:transaction dataSource="${db}">
+	
+	<sql:update dataSource="${db}" var="count">
+		update students set dob=? where id=?
+		<sql:dateParam value="<%=dob %>" type="date" />
+		<sql:param value="${sid}"/>
+		
+	</sql:update>
+	
+	<sql:update dataSource="${db}" var="count">
+		delete from students where id=?
+		<sql:param value="${sid}"/>
+	</sql:update>
+	
+	<sql:query dataSource="${db}" var="rs">
+	select * from Students;
+	</sql:query>
+	
+	
+	
+	
+	</sql:transaction>
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
