@@ -1,0 +1,13 @@
+how to mamnage data state on different web pages
+as http is stateless protocol
+session tracking techniques--
+HttpSession-- Login to Logout info (Server side)
+Cookies -- Client side, simple text file, store small info which is requried in eah request
+Hidden fields
+<input type="hidden" value="abc">
+URL Rewriting
+http://localhost:8080/index.html?usname="asdfs"
+
+RequestDispatcher -- it is interface which provides methods to move from 1 web page to another
+include(request, response)-- must be include in the current requested page
+forward()-- move to any other page with all request and response
