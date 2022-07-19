@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+/*function calculate(){
+	var i=0;
+	i=i+1;
+	document.getElementById("span1").innerHTML=i;
+}*/
+i=0;
+$(document).ready(function(){
+	
+	$("input").keypress(function(){
+		$("#span1").text(i+=1);
+		
+	});
+	
+	
+	
+});
+
+</script>
+</head>
+<body>
+<input type="text" >
+KeyPress: <span id="span1">0</span>
+</body>
+</html>

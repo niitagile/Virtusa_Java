@@ -1,0 +1,38 @@
+JSON- Java Script Object Notation
+Person={name : "Nisha", age:31, city:"Delhi"};
+
+Person.name
+
+Data type
+a string
+a number
+an object
+an array
+a boolean
+null
+
+
+file type-- json
+mime type-- "application/json"
+
+JSOn vs XML
+likes
+- self describing
+-values within values
+- use with any other programming language
+- can be fetched by ajax engine
+
+Unlike
+-json is text not tags
+- json is shorter
+-json can use array
+- xml has be parsed with xml parser but json can be parsed by standard javasript function
+
+
+JSOn Object syntax
+{
+"Person":{name : "Nisha", age:31, city:"Delhi"}
+
+}
+
+const name=["Nisha","Manish","Poly"];

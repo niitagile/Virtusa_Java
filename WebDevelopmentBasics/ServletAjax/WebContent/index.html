@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script>
+	function sendRequest(stval){
+		
+		var xmlHttp=new XMLHttpRequest();
+	/*	xmlHttp.open("GET","StatesDisplay",true);
+		xmlhttp.send(null);*/
+		xmlHttp.open("POST","StatesDisplay", true);
+		xmlHttp.setRequestHeader("content-type", "application/x-www-form-urlencoded")
+		xmlHttp.send("state="+stval);
+		xmlHttp.onreadystatechange=function(){
+			if(xmlHttp.readyState==4 && xmlHttp.status==200)
+				
+				document.getElementById("statelist").innerHTML=xmlHttp.responseText;
+		}
+		
+		
+		
+	}
+
+</script>
+</head>
+<body>
+Enter your state<input type="text" name="state" onkeyup="sendRequest(this.value)">
+<p><b> Suggestions</b></p>
+<div id="statelist"></div>
+</body>
+</html>

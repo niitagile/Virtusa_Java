@@ -1,0 +1,57 @@
+AJAX- Asynchronous Java Script+XML
+Object-- XMLHttpRequest-- is used for asynchronous communication between client and server
+
+sending Request from client-- receives date from server-- updates the page without reloading it.
+
+XMLHttpRequest-- properties
+
+onReadyStateChange--It is called whenever readystate attribute changes
+readyState-- it represents state of the request
+0-unopened
+1-opened
+2-headers_received-- send() is called, all headers and status are available
+3- loading -- downloading data which comes from server. 
+4-done--operation is completed
+
+
+responseText- in which whole data from server is hold. (String)
+reponseXML-returns response in XML
+
+
+XMLHttpRequest methods
+
+void open(method, url)-- sync
+-- method -- get/post
+
+void open(method, url,async)
+
+void open(method, url, async, username, password)
+
+void send()-- sends get request
+
+void send(string) -- send post request
+
+sendRequestHeader(header, value) -- it adds request headers
+
+
+create a new XMLHttpRequest
+
+var xmlhttp;
+
+if(window.XMLHttpRequest){
+
+xmlhttp=new XMLHttpRequest();// IE6 and more, chrome
+
+}
+else
+{
+	xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");// lesser vesrion than IE6
+
+
+
+
+
+
+
+
+
