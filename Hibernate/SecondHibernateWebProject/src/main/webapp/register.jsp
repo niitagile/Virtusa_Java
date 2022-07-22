@@ -1,7 +1,9 @@
-<%@page import="com.virtusa.beans.*"%>  
+
+<%@page import="com.virtusa.model.*"%>  
 
 <%
 StudUser obj=new StudUser();
+out.println(obj);
 obj.setName(request.getParameter("name"));
 obj.setPword(request.getParameter("pword"));
 obj.setEmail(request.getParameter("email"));

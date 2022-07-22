@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="com.virtusa.beans.UserDao"%>
+    pageEncoding="ISO-8859-1" import="com.virtusa.model.UserDao"%>
 <!DOCTYPE html>
 <html>
 <head>
