@@ -1,0 +1,163 @@
+Query Interface-- createQuery() method Session Interface
+
+Query query=session.createQuery("from Student");
+
+int executeUpdate()-- insert, update,delete
+
+List list()-- returns result
+setParameter(int/String position, Object value)
+
+to get records
+List list=query.list();
+
+to restrict records
+Query query=session.createQuery(from Student);
+query.setFirstResult(10);
+query.setMaxResult(20);
+List list=query.list();
+
+
+update Record
+Query query=session.createQuery("update Student set marks=:m where sid=:id ");
+query.setParameter("m","");
+query.setParameter("id",2);
+int res=query.executeUpdate();
+
+From Clause
+Query query=session.createQuery("from Student");
+Query query=session.createQuery("from com.virtusa.beans.Student");
+
+As clause
+Query query=session.createQuery("from Student as Stud");
+
+Select
+Query query=session.createQuery("Select name, marks from Student stud");
+
+where clause
+Query query=session.createQuery("from Student as Stud where marks>35");
+
+Order by
+Query query=session.createQuery("from Student as Stud where marks>35 order by marks");
+
+
+group by
+Query query=session.createQuery("select department, sum(salary) from employee group by department");
+
+
+Criteria Interface
+createCriteria(Class c)-- Session Interface
+Criteria add(Criteria c)
+Criteria addOrder(Order o)
+Criteria setProjection(Projection projection)
+
+
+Restrictions class
+lt(String propertyname, Object value)
+le()
+gt()
+ge()
+ne()
+eq()
+
+between()
+like()
+
+Order class
+asc(String propertyname)
+desc(String propertyname)
+
+Crietria c=session.createCriteria(student.class);
+c.setFirstResult(10);
+c.setMaxResult(20);
+List list=c.list();
+
+
+Crietria c=session.createCriteria(student.class);
+c.add(Restrictions.gt("total",70));
+c.addOrder(Order.asc("total"));
+List list=c.list();
+
+
+Crietria c=session.createCriteria(student.class);
+c.setProjection(Projections.property("name"));
+List list=c.list();
+
+
+c.add(Restrictions.like("name", "_A%"));
+
+c.add(Restrictions.ilike("name", "_A%"));
+
+c.add(Restrictions.between("total", 40,60));
+
+c.add(Restrictions.isNull("name"));
+
+Logical Operators
+Crietria c=session.createCriteria(student.class);
+Criteria name=Restrictions.like("name", "_A%");
+Criteria total=Restrictions.between("total", 40,60);
+LogicalExpression andExp=Restrictions.and(name,total);
+c.add(andExp);
+List list=c.list();
+
+
+
+@NamedQueries({
+
+@NamedQuery(
+name="findTotal",
+query="from Student s where e.total >=:tot" 
+)
+@NamedQuery(
+name="findTotal",
+query="from Student s where e.total >=:tot" 
+)
+})
+
+
+
+
+
+
+class Student{
+}
+
+
+
+In main method to fetch namedquery
+
+TypedQuery query=session.getNamedQuery("findTotal");
+query.setParameter("tot",70);
+List<Student> list=query.getResultList();
+
+Second Level Cachce--> org.hibernate.chache.CacheProvider
+
+
+Concurrency Strategies
+
+Hibernate.cg.xml
+
+<cache usage="read-write"/>
+
+
+
+Query-level cache
+
+Session session=SessionFactory.openSession();
+Query query=session.createQuery("From Employee");
+query.setCacheable(true);
+List<Employee> list=query.list();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

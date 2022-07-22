@@ -1,0 +1,30 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>virtusa</groupId>
+  <artifactId>HibernateXML2</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>HibernateXML2</name>
+  <dependencies>
+  <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.5.2.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>3.12.1.GA</version>
+            </dependency>
+           <!-- https://mvnrepository.com/artifact/ojdbc14/ojdbc14 -->
+<!-- https://mvnrepository.com/artifact/oracle/ojdbc6 -->
+<!-- https://mvnrepository.com/artifact/com.oracle/ojdbc6_g -->
+<dependency>
+    <groupId>com.oracle</groupId>
+    <artifactId>ojdbc14</artifactId>
+    <version>1.0</version>
+    <scope>system</scope>
+    <systemPath>E:/workspace - Copy/B2_Examples/jdbc/ojdbc14.jar</systemPath> <!-- must match file name -->
+</dependency>
+  </dependencies>
+</project>

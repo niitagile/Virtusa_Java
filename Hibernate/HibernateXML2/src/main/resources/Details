@@ -1,0 +1,9 @@
+JPA- Java Persitence Access
+Object--> JPA--->Tables===> ORM- Object Relational Mapping
+
+Hibernate Framework--> it implements JPA
+4 layers
+1) Applicaton layer--> front layer (Persitence Object)
+2) Hibernate framework layer-- getting object, session, transactions, connections
+3) backend api-- internally (drivers, Java Transaction APIs,Java Naming Directory Interface
+4) database
