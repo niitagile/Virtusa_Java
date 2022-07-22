@@ -1,0 +1,13 @@
+ Create maven web project
+ Add Tomcat
+ 	right click on project-> build path-> add library-> server library-> tomcat
+ Download database jar file
+ edit pom.xml--> add hibernate-core and database jar file as depencies
+ edit hibernate.cfg.xml file -> add database path
+ create a package in src
+ 	create a class with annotations
+ 	create a service class to add bean in database
+ create jsp pages in src -> web folder
+ 	
+ 
+ 	
