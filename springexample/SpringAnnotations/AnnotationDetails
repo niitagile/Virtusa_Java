@@ -1,0 +1,130 @@
+JDBCTemplate class
+org.springframework.dao
+
+public int update(String query)
+public void execute(String query)-- DDL
+public T execute(String sql, preparedSatementCallbackaction)
+
+public List query(String sql, RowMapper obj)
+
+public T query(String sql, ResultSetExtractor rs)
+
+************************************************************************************************************************
+			Annotations
+
+@Component- seterio-typed annotation
+We use with class level to indicate that the class beans will be managed by container
+@Autowired
+at the top of setter, constructor, variable
+@Autowired
+public void setName(String name){
+	this.name=name
+}
+
+@Bean- it method-level annotation.
+It is used with those methods which returns object
+use @Bean with @Configutation because it provide methods to instatiate and configure dependencies
+@Configuration
+class Student{
+
+@Bean
+public Student getObject(){
+	return new Student();
+}
+}
+or
+<bean id="stud" class="Student"></bean>
+
+
+@Qualifier
+NormalCall
+WhatsAppCall
+//Through Setter
+@Autowired
+@Qualifier("NormalCall")
+public void setCall(String phonenum){
+
+//constructor
+@Autowired
+public CallProcess(@Qualifier("NormalCall") String phone){}
+
+
+
+@Required
+it always use with setter and make the setter mantatory
+
+String name;
+
+@Required
+void setName(String name){
+this.name=name;
+}
+
+you must pass value through XML
+<bean id="" class="">
+	<property name="name" value="Ankita"/>
+	</bean>
+if you are not passing value, one exception will thrown-- BeanInitializationException
+
+****************************************************************************
+
+				
+
+
+
+
+
+
+@Value
+use to assign default value
+@Value("Btech")
+private String course;
+	
+	
+@Lazy
+it is used to stop pre-initialization of a bean
+
+@Lazy(value=true)
+@Bean
+public Student getObject(){
+	return new Student();
+}
+	
+@Lookup	
+it is the process to override a Spring bean at run time
+inject prototype scoped bean in singleton bean
+use above method
+
+@Lookup
+public Student getObject(){
+	return new Student();
+}
+this method must not static, final,or private
+
+@Scope
+to set scope of bean
+
+@Component
+@Scope(value=ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+class Student{
+
+
+}
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
