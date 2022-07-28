@@ -1,0 +1,16 @@
+1) Create a dynamic project
+2) Add All Jar files-- Web-inf/lib folder
+3) Create 3 packages-- com.springcrud.controller, com.springcrud.beans, com.springcrud.Dao
+4) Create a folder JSP in web-inf
+5) create index.jsp in Webcontent folder
+6) create spring-servlet.xml in web-inf
+
+1) Configuration (XML)
+	i) in web.xml-- configure welcome page & DispatcherServlet
+	ii) in spring-servlet.xml- Configure viewresolver, datasource, jdbctemplate, DAO class
+	ii
+	JDBCTemplate is providing us all predefined methods to do CRUD operations
+2) Bean- create Employee.java (Class)
+3) DAO- create EmmployeeDaO.java (Class), EmployeeMapper(Class)
+4)controller -- 
+	
