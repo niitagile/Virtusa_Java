@@ -1,0 +1,109 @@
+		Form Tag Library
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"	%>
+
+form:form
+form:input
+form:radiobutton
+form:checkbox
+form:password
+form:textarea
+form:select
+form:hidden
+<form>
+
+
+
+
+<form:form action="" modelAttribute="">
+<form:input path=""/>
+path attribute which binds the form field to the bean property
+<form:input type="email" path="email"/>
+<form:radiobutton path="" value=""/>
+<form:radiobutton path="" value="${msg}"/>
+<form:checkbox path="" value=""/>
+if you want to pass mulltiple values , you need to pass the elements of Array, List, Map
+<form:checkboxes path="" items="${object.elementList} />
+
+
+
+<form:select path="">
+<form:option value="" label="" />
+
+<form:options items=${elementList}" itemValue="" itemLabel="" />
+
+
+*****************************************************************
+Bean Validations we are using Hibernate validator 
+
+Hibernate validator jar
+
+@NotNull
+@Min
+@Max
+@Size
+@Pattern - regular expression
+@NotEmpty
+@Range(min=1, max=10)
+
+
+class Employee{
+
+@Size(min=6, message="Required")
+private String password;
+
+
+}
+
+
+Controller
+@Valid @MadelAttribute("emp") Employee e
+
+
+
+}
+
+*********
+Pattern
+
+class Employee{
+
+@Pattern(regexp="^[a-zA-Z]{6}", message="length must be 6"
+private String password;
+
+
+}
+
+
+Metacharacters
+|--- any one of the patterns
+			^[a|b]
+a|b
+.-just one instance of character
+	.a
+^- a match as the beginning of a string
+$- a match as the ending of a string
+\d- digits
+{\d}{6}
+\s - spaces
+
+
+range characters
+[abc]
+[^abc]
+[0-9]
+
+Qualifiers
+n+ - matches any string that contains at least one n 
+n* - 0 or more
+n? 0 or 1
+n{x} contains a sequence of x n
+		9{3}-- 999
+n{x,y} - conatins a sequence of X to Y n's
+
+^[1-9][0-9]{5}
+
+
+a+
+
+
+

@@ -1,0 +1,8 @@
+Spring MVC Validation
+-- to restrict input
+Baen validation api
+@NotNull
+@Min
+@Max
+@Size
+@Pattern
