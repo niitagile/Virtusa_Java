@@ -1,0 +1,39 @@
+1) create dynamic project including web.xml
+2) Add jar files in web-inf/lib folder
+3) Open web.xml and add dispatcherservlet info
+4) create new xml file spring-servlet.xml in web-inf folder
+5) create View -- html and jsp pages in webcontent-- index.jsp, hello.jsp
+6) create Controller-- Simple class
+
+
+1) Send request to Server
+http://localhost:8080/index.jsp
+2) index.jsp will open on screen
+3) Click on say hello-- request for hello.html page with generate
+4) Server will check web.xml, create an object of DispatcherServlet and checks is request comes from *.html page
+5) DispatcherServlet checks for controller file in spring-servlet
+6) Try to match request with controller and execute the method helloWorld
+7) Hello World wrap all information in ModelAndView Object-- URL, propertyname, value
+8) Now DispatcherServlet checks for view with the help of viewresolver in spring-servlet
+7) Url is /web-inf/hello.jsp
+
+
+**********************************************************************************
+Spring MVC-- Model View Controller
+Model-- Beans- Simple Class
+View-- Html/Jsp
+Controller-- Mediator/ Business Logic Layer which controls flow of data in between view and model as well as resolve request
+DispatcherServlet-- class that receives the incoming request and maps it to the right resource like controller, models and views
+Web brower sends request--> Front Controller--> Model--> Controller--> Model --> View--> send to browser
+Model--> collection of data from 1 or more objects
+Controller--> business logic of an application. @Controller
+View--> JSP/JSTL
+Front Controller--> DispatcherServlet class which works like front controller. 
+
+
+Flow of spring web MVC
+1) Request comes
+2) DispatcherServlet receives request and read XML file(Handler Mapping) and gets information which controller will resolve this request
+3) send request to controller and controller resolve the problem and wrap result in ModelAndView-- it is a holder which holds both class object and your jsp view
+4) dispatcherServlet gets the output from controller in format of ModelandView
+5) DS checks viewResolver  and invokes the specified view component
