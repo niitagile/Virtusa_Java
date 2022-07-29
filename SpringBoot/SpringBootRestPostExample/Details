@@ -1,0 +1,106 @@
+Steps for Project:
+1) File-> New--> spring starter project
+2) Fill all information
+3) Dependencies-- Spring web
+4) Right click on pakage and create a class-User.java (Simple Bean-- variables, constructor, getter/setter)
+5) Right Click on package create a class- UserDaoService
+6) download postman  https://www.postman.com/downloads/
+7) Run your project in eclipse
+8) open postman
+
+@GetMapping- To get some result form server
+@PostMapping- To send some information on Server
+@DeleteMapping - to remove some data
+@PutMapping- to modify existing data
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Springboot -- web project
+Web Services
+
+Web services provide a way to get interoperability among multiple application
+Java--Web service-- Java/.Net/PHP
+
+2 types of web services
+
+Complonents of Web servicw
+1)SOAP- Simple Object Access Protocol
+WSDL- Web Service Description Language
+UDDI- Universal Description, Discovery and Integration
+
+
+2)RESTful Web Services-- Representational state Transfer
+With the help of restful you can transfer different data format-- Text, html,xml,json
+Rest API uses url to expose business logic
+HTTP Methods
+GET it read a resource
+PUT it update an existing resource
+POST it creates a new resource
+DELETE it delete the resource
+
+error
+404 - resource not found
+200 sucess
+201 created
+401 unauthorized
+500 server error
+
+
+Restful Service constraints
+1) must be 1 service producer and 1 service consumer
+2) it is stateless
+3) result must be chacheable
+4) interface is uniform
+5) there should be layere architure
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
