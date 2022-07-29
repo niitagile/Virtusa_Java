@@ -1,0 +1,15 @@
+ go to help--> Eclipse Market
+ In search--> sts and install sts
+ go to File--> new project--> spring starter project
+ 	Mention project details
+ 	then next, select dependencies--> web , jdbc api, oracle/mysql
+click on finish
+open project in project explorer
+in src/java/resources--> application.properties files and give details of database connectivity
+Write code for requestmapping and insert record in class
+create a table
+ create table product(pid varchar2(5),pname varchar2(20));
+ run project
+ open browser -->http://localhost:8080/insert
+ 	
+ 
