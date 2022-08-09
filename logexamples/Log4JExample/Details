@@ -1,0 +1,37 @@
+Log4J/
+java.util.Logger
+SLFJ4
+
+
+
+In Java, Logging is an API that provides the ability to trace out the errors of the applications. 
+When an application generates the logging call, the Logger records the event in the LogRecord. 
+After that, it sends to the corresponding handlers or appenders. Before sending it to the console or file,
+ the appenders format that log record by using the formatter or layouts.
+ 
+ 
+ Logger Handlers
+ ConsoleHandler: It writes all the formatted log messages to the console.
+FileHandler: It writes the log message either to a single file or a group of rotating log files in the XML format.
+
+
+two standard formatters class:
+
+SimpleFormatter
+XMLFormatter
+
+
+LogManager is the class that reads the logging configuration, create and maintains the logger instances
+
+
+Level defines the different levels of java logging. There are seven levels of logging in java.
+
+SEVERE (highest)
+WARNING
+INFO
+CONFIG
+FINE
+FINER
+FINEST
+
+ERROR
